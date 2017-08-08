@@ -1,12 +1,13 @@
+
 {% extends "base.html" %}
 
 {% block content %}
 
-{% if articles.count > 0 %}
+{% if articles.count > 0 %} 
 
 {% for article in articles %}
 <div>
-<h2><a href="/articles/get/{{ article_id }}/">{{ article.title }}</a></h2>
+<h2><a href="/article/get/{{ article.id }}/">{{ article.title }}</a></h2>
 <p>{{ article.body|lower|truncatewords:"10"}}</p>
 </div>
 {% endfor %}
@@ -16,5 +17,4 @@
 <p>None to show!</p>
 
 {% endif %}
-
 {% endblock %}
