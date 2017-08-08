@@ -56,11 +56,14 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'django_test.urls'
+TEMPLATE_DIRS =[
+    '/home/vineetjain/Documents/python/django-vineet/django_test/article/templates',
+    '/home/vineetjain/Documents/python/django-vineet/django_test/base',
+    ]
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': BASE_DIR,
         'OPTIONS': {
             'context_processors': [
