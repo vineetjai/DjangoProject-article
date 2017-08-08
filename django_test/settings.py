@@ -131,3 +131,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    '/home/vineetjain/Documents/python/django-vineet/django_test/static'
+]
+STATIC_ROOT ='/home/vineetjain/Documents/python/django-vineet/django_test/static/assets'
+STATICFILES_FINDERS=[
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
