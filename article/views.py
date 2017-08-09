@@ -11,6 +11,9 @@ from django.template import Context
 from django.shortcuts import render_to_response
 from django.views.generic.base import TemplateView
 from article.models import Article
+from forms import ArticleForm
+from django.shortcuts import render
+#from django.core.context_processors import csrf
 
 def hello(request):
 	name="Vineet"
@@ -46,3 +49,17 @@ def language(request,language='en-gb'):
 	response.set_cookie('lang',language)
 	request.session['lang']=language
 	return response
+
+def create(request):
+	if request.POST:
+		form=ArticleForm(request.POST)
+		if form.is_valid():
+			form.save()
+
+			return HttpResponseRedirect('/articles/all')
+	else:
+		form = ArticleForm()
+
+	args={}
+	args['form']=form
+	return render(request,'create_article.html',args)

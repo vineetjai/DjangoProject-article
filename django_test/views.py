@@ -3,7 +3,8 @@ from django.shortcuts import render
 from django.contrib import auth
 from django.shortcuts import render_to_response
 from django.http import HttpResponse , HttpResponseRedirect
-from django.contrib.auth.forms import UserCreationForm
+#from django.contrib.auth.forms import UserCreationForm
+from forms import MyRegistrationForm
 from django.views.decorators.csrf import csrf_exempt
 def login(request):
 	c={}
@@ -29,12 +30,14 @@ def logout(request):
 @csrf_exempt
 def register_user(request):
 	if request.method=='POST':
-		form=UserCreationForm(request.POST)
+		#form=UserCreationForm(request.POST)
+		form=MyRegistrationForm(request.POST)
 		if form.is_valid():
 			form.save()
 			return HttpResponseRedirect('/accounts/register_success/')
 	args={}
-	args['form']=UserCreationForm()
+	#args['form']=UserCreationForm()
+	args['form']=MyRegistrationForm()
 	return render(request,"register.html",args)
 
 def register_success(request):

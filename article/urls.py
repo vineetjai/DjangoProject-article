@@ -10,5 +10,6 @@ urlpatterns=[
     url(r'^hello/$',hello,name='hello'),
     url(r'^hello_class_view/$',HelloTemplate.as_view()),
     url(r'^hello_template/$',hello_template,name='hello_template'),
-    url(r'^hello_template_simple/$',hello_template_simple,name='hello_template_simple')
+    url(r'^hello_template_simple/$',hello_template_simple,name='hello_template_simple'),
+    url(r'^articles/create/$',create,name='create'),
 ]
