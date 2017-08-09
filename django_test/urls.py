@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import *
+from django_test.views import *
 from django.contrib import admin
 admin.autodiscover()
 '''from article.views import hello
@@ -32,5 +33,11 @@ from article.views import hello_template_simple'''
 urlpatterns =[
 	url(r'^admin/', admin.site.urls),
 	url(r'',include('article.urls')),
-
+	url(r'^accounts/login/$',login,name='login'),
+	url(r'^accounts/auth/$',auth_view,name='auth_view'),
+	url(r'^accounts/logout/$',logout,name='logout'),
+	url(r'^accounts/loggedin/$',loggedin,name='loggedin'),
+	url(r'^accounts/invalid/$',invalid_login,name='invalid_login'),
+    url(r'^accounts/register/$',register_user,name='register_user'),
+    url(r'^accounts/register_success/$',register_success,name='register_success'),
 ]
