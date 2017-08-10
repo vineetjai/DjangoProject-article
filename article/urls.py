@@ -12,4 +12,6 @@ urlpatterns=[
     url(r'^hello_template/$',hello_template,name='hello_template'),
     url(r'^hello_template_simple/$',hello_template_simple,name='hello_template_simple'),
     url(r'^articles/create/$',create,name='create'),
+    url(r'^articles/like/(?P<article_id>\d+)/$',like_article,name='like_article'),
+    url(r'^articles/add_comment/(?P<article_id>\d+)/$',add_comment,name='add_comment')
 ]
